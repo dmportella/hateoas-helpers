@@ -101,6 +101,23 @@ describe('helpers-core', function() {
 					allowed: 'application/xml'
 				});
 		});
+
+		it('disallow call on undefined type', function() {
+			let req = request();
+			let res = response();
+
+			req.getValue = undefined;
+
+			helpers.checkType(['application/xml'], req, res, (err) => expect().fail());
+
+			expect(res.status).to.eql(415);
+			expect(res.sendValue).to.eql(
+				{
+					status: 'Unsupported Media Type',
+					statuscode: 415,
+					allowed: 'application/xml'
+				});
+		});
 	});
 
 	describe('checkAccept', function() {

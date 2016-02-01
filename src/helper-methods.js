@@ -15,8 +15,10 @@ module.exports = function HelperMethods() {
 			}
 		},
 		checkType(allowed, req, res, next) {
-			const contentType = req.get('Content-Type').toUpperCase();
-			if (!_.find(allowed, (item) => item.toUpperCase() === contentType)) {
+			const contentType = req.get('Content-Type');
+			if (contentType === undefined ||
+				((contentType !== undefined) &&
+					!_.find(allowed, (item) => item.toUpperCase() === contentType.toUpperCase()))) {
 				res.status(415).send(
 					{
 						status: 'Unsupported Media Type',
