@@ -1,18 +1,18 @@
 {
-  "name": "hatoas-helpers",
+  "name": "hateoas-helpers",
   "version": "1.0.0",
-  "description": "A collection of helper methods and libraries to implement HATOAS on expressjs.",
+  "description": "A collection of helper methods and libraries to implement HATEOAS on expressjs.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./bin/tests"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dmportella/hatoas-helpers.git"
+    "url": "git+https://github.com/dmportella/hateoas-helpers.git"
   },
   "keywords": [
-    "hatoas",
+    "hateoas",
     "express",
     "rest",
     "hypermedia",
@@ -23,7 +23,7 @@
   "author": "Daniel Portella",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dmportella/hatoas-helpers/issues"
+    "url": "https://github.com/dmportella/hateoas-helpers/issues"
   },
   "homepage": "https://github.com/dmportella/hatoas-helpers#readme",
   "devDependencies": {
