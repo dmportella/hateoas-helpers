@@ -51,12 +51,16 @@ module.exports = function HelperMethods() {
 				res.status(204).send();
 			}
 		},
-		return400(err, req, res) {
-			res.status(400).send(
-				{
-					status: 'Bad Request',
-					statuscode: 400
-				});
+		return400(err, req, res, next) {
+			if (err) {
+				next(err);
+			} else {
+				res.status(400).send(
+					{
+						status: 'Bad Request',
+						statuscode: 400
+					});
+			}
 		}
 	};
 };
