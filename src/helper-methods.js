@@ -23,7 +23,8 @@ module.exports = function HelperMethods() {
 					{
 						status: 'Unsupported Media Type',
 						statuscode: 415,
-						allowed: allowed.join()
+						allowed: allowed.join(),
+						provided: contentType
 					});
 				return;
 			}
@@ -37,7 +38,8 @@ module.exports = function HelperMethods() {
 					{
 						status: 'Method Not Allowed',
 						statuscode: 405,
-						allowed: allowed.join()
+						allowed: allowed.join(),
+						provided: method
 					});
 				return;
 			}

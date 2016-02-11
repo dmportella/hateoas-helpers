@@ -1,6 +1,6 @@
 {
   "name": "hateoas-helpers",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A collection of helper methods and libraries to implement HATEOAS on expressjs.",
   "main": "index.js",
   "scripts": {

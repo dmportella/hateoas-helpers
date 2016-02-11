@@ -30,7 +30,8 @@ describe('check-methods', () => {
 				{
 					status: 'Method Not Allowed',
 					statuscode: 405,
-					allowed: 'POST'
+					allowed: 'POST',
+					provided: 'GET'
 				});
 		});
 	});
@@ -52,7 +53,8 @@ describe('check-methods', () => {
 				{
 					status: 'Unsupported Media Type',
 					statuscode: 415,
-					allowed: 'application/xml'
+					allowed: 'application/xml',
+					provided: 'application/json'
 				});
 		});
 
@@ -69,7 +71,8 @@ describe('check-methods', () => {
 				{
 					status: 'Unsupported Media Type',
 					statuscode: 415,
-					allowed: 'application/xml'
+					allowed: 'application/xml',
+					provided: undefined
 				});
 		});
 	});
