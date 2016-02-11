@@ -4,7 +4,7 @@ const _ = require('underscore');
 
 module.exports = function RequestMock() {
 	return {
-		getValue: 'application/json',
+		getValue: 'application/json; charset=utf-8; custom-value=1234',
 		acceptsValue: 'JSON',
 		method: 'get',
 		get() {

@@ -1,4 +1,7 @@
+'use strict';
+
 const _ = require('underscore');
+const contentTypeParser = require('content-type');
 
 module.exports = function HelperMethods() {
 	return {
@@ -16,19 +19,25 @@ module.exports = function HelperMethods() {
 		},
 		checkType(allowed, req, res, next) {
 			const contentType = req.get('Content-Type');
-			if (contentType === undefined ||
-				((contentType !== undefined) &&
-					!_.find(allowed, (item) => item.toUpperCase() === contentType.toUpperCase()))) {
-				res.status(415).send(
-					{
-						status: 'Unsupported Media Type',
-						statuscode: 415,
-						allowed: allowed.join(),
-						provided: contentType
-					});
-				return;
+			let parsedContentType;
+
+			if (contentType !== undefined) {
+				parsedContentType = contentTypeParser.parse(contentType);
+
+				if (_.find(allowed,
+					(item) => item.toUpperCase() === parsedContentType.type.toUpperCase())) {
+					next();
+					return;
+				}
 			}
-			next();
+
+			res.status(415).send(
+				{
+					status: 'Unsupported Media Type',
+					statuscode: 415,
+					allowed: allowed.join(),
+					provided: contentType || (parsedContentType) ? parsedContentType.type : undefined
+				});
 		},
 		checkMethod(allowed, req, res, next) {
 			const method = req.method.toUpperCase();
