@@ -1,6 +1,6 @@
 {
   "name": "hateoas-helpers",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A collection of helper methods and libraries to implement HATEOAS on expressjs.",
   "main": "index.js",
   "scripts": {
@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "async": "^1.5.2",
+    "content-type": "^1.0.1",
     "underscore": "^1.8.3"
   }
 }
