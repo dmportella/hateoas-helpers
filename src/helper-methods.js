@@ -72,6 +72,17 @@ module.exports = function HelperMethods() {
 						statuscode: 400
 					});
 			}
+		},
+		return404(err, req, res, next) {
+			if (err) {
+				next(err);
+			} else {
+				res.status(404).send(
+					{
+						status: 'Not Found',
+						statuscode: 404
+					});
+			}
 		}
 	};
 };

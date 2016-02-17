@@ -34,4 +34,18 @@ describe('return-methods', () => {
 			helpers.return400(error, undefined, res, (err) => { expect(err).to.eql(error); done(); });
 		});
 	});
+
+	describe('return404', () => {
+		it('return 404 successfully', () => {
+			const res = response();
+			helpers.return404(undefined, undefined, res, undefined);
+			expect(res.statusValue).to.eql(404);
+		});
+
+		it('return 404 returns error', (done) => {
+			const res = response();
+			const error = new Error();
+			helpers.return404(error, undefined, res, (err) => { expect(err).to.eql(error); done(); });
+		});
+	});
 });
